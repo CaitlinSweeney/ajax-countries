@@ -4,11 +4,12 @@ var express    = require('express'),
     bodyParser = require('body-parser'),
     logger     = require('morgan'),
     mongoose   = require('mongoose'),
-    routes     = require('./routes'),
-    path       = process.env.PORT || 1337,
+    Routes     = require('./routes'),
+    path       = require('path'),
+    port       = process.env.PORT || 1337,
     app        = express();
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname,'public')));
 
 mongoose.connect('mongodb://localhost/ajax-countries', (error) => {
     if(error) {
