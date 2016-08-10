@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app='Countries'>
 <head>
   <title>AJAX Countries</title>
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css">
@@ -8,11 +8,20 @@
   <script src="/scripts/app.module.js"></script>
   <script src="/scripts/app.controller.countries.js"></script>
   <script src="/scripts/app.factory.api.js"></script>
-
+  <link rel='stylesheet' href='styles/main.css'/>
 </head>
-<body class="container">
-  <div class='container-fluid'>
-    <h1>Countries</h1>
+
+<body class="container" ng-controller='countriesController as cCtrl'>
+  <div class='jumbotron'>
+    <h1 id='banner'>Countries</h1>
+    <button class='btn btn-info' ng-click='cCtrl.showCountries()'>See Countries</button>
+    <a class='btn btn-info' href='/api/countries'>Countries JSON</a>
+  </div>
+  <div class='container'>
+    <ul ng-show='cCtrl.list'>
+      <li ng-repeat='country in cCtrl.countries'>{{ country.name }}</li>
+    </ul>
   </div>
 </body>
+
 </html>

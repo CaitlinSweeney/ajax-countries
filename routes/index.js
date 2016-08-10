@@ -1,9 +1,7 @@
-var countryCtrl = require('./countries');
+var countryApi = require('./countryApi');
 
 module.exports = (app) => {
   // Routes //
-
-  // Country Routes //
-  app.get('/api/countries', countryCtrl.get)
-  
+  app.get('/api/countries', countryApi.get);
+  app.get('/api/country/:name', countryApi.get);
 }
