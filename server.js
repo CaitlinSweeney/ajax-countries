@@ -6,7 +6,7 @@ var express    = require('express'),
     mongoose   = require('mongoose'),
     Routes     = require('./routes'),
     path       = require('path'),
-    port       = process.env.PORT || 1337,
+    port       = process.env.PORT || 8080,
     app        = express();
 
 app.use(express.static(path.join(__dirname,'public')));
